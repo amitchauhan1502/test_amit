@@ -257,6 +257,8 @@ int main(int argc, char* argv[]) {
       examples::MakeCommandEntry("read-row", {"<row-key>"}, ReadRow),
       examples::MakeCommandEntry("drop-all-rows", {"<table-id>"}, DropAllRows),
       examples::MakeCommandEntry("delete-table", {"<table-id>"}, DeleteTable),
+      examples::MakeCommandEntry("delete-instance", {"<instance-id>"},
+                                 DeleteInstance),
       {"auto", RunAll},
   });
 
