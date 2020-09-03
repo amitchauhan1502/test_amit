@@ -1,17 +1,3 @@
-// Copyright 2018 Google LLC
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-// http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 #include "google/cloud/bigtable/examples/bigtable_examples_common.h"
 #include "google/cloud/bigtable/table_admin.h"
 #include "google/cloud/bigtable/instance_admin.h"
@@ -117,6 +103,7 @@ void PrepareReadSamples(google::cloud::bigtable::Table table) {
   throw std::runtime_error(failures.front().status().message());
 }
 
+// Reading table row
 void ReadRow(google::cloud::bigtable::Table table,
              std::vector<std::string> const& argv) {
   //! [START bigtable_reads_row]
@@ -136,6 +123,7 @@ void ReadRow(google::cloud::bigtable::Table table,
   (std::move(table), argv.at(0));
 }
 
+// Delete all rows of table
 void DropAllRows(google::cloud::bigtable::TableAdmin const& admin,
                  std::vector<std::string> const& argv) {
   //! [drop all rows]
@@ -165,6 +153,7 @@ void DeleteTable(google::cloud::bigtable::TableAdmin const& admin,
   (std::move(admin), argv.at(0));
 }
 
+//Deleting instance 
 void DeleteInstance(google::cloud::bigtable::InstanceAdmin instance_admin,
                     std::vector<std::string> const& argv) {
   //! [delete instance] [START bigtable_delete_instance]
@@ -178,7 +167,7 @@ void DeleteInstance(google::cloud::bigtable::InstanceAdmin instance_admin,
   (std::move(instance_admin), argv.at(0));
 }
 
-
+// Run all operations 
 void RunAll(std::vector<std::string> const& argv) {
   namespace examples = ::google::cloud::bigtable::examples;
   namespace cbt = google::cloud::bigtable;
